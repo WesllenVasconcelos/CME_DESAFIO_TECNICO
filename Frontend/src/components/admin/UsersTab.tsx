@@ -18,7 +18,7 @@ const UsersTab: React.FC = () => {
   const [openCreatePopup, setOpenCreatePopup] = useState(false);
 
   useEffect(() => {
-    fetch('http://0.0.0.0:8001/core/users',{
+    fetch('http://localhost:8001/core/users',{
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -26,7 +26,7 @@ const UsersTab: React.FC = () => {
       .then((res) => res.json())
       .then((data) => setUsers(data));
 
-    fetch('http://0.0.0.0:8001/core/cargos')
+    fetch('http://localhost:8001/core/cargos')
       .then((res) => res.json())
       .then((data) => setCargoOptions(data));
   }, []);
@@ -37,7 +37,7 @@ const UsersTab: React.FC = () => {
   };
 
   const handleSave = (updatedUser: any) => {
-    fetch(`http://0.0.0.0:8001/core/users/${updatedUser.id}/`, {
+    fetch(`http://localhost:8001/core/users/${updatedUser.id}/`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const UsersTab: React.FC = () => {
   };
 
   const handleCreate = (newUser: any) => {
-    fetch('http://0.0.0.0:8001/core/register/', {
+    fetch('http://localhost:8001/core/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

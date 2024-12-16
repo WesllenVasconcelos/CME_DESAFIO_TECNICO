@@ -25,7 +25,7 @@ const ProcessoDetailsPopup: React.FC<ProcessoDetailsPopupProps> = ({
 
   useEffect(() => {
     if (open) {
-      axios.get(`http://0.0.0.0:8001/esterilizacao/processos/${processo_id}/etapas/`)
+      axios.get(`http://localhost:8001/esterilizacao/processos/${processo_id}/etapas/`)
         .then(response => {
           setEtapas(response.data);
         })

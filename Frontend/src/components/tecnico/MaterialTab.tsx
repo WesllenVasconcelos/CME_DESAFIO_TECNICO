@@ -40,7 +40,7 @@ const MaterialTab: React.FC = () => {
   
     const fetchMaterias = () => {
       axios
-        .get('http://0.0.0.0:8001/esterilizacao/materiais/', {
+        .get('http://localhost:8001/esterilizacao/materiais/', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('access_token')}`,
           },
@@ -50,7 +50,7 @@ const MaterialTab: React.FC = () => {
     };
 
     useEffect(() => {
-      axios.get('http://0.0.0.0:8001/esterilizacao/materiais/', {
+      axios.get('http://localhost:8001/esterilizacao/materiais/', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -61,7 +61,7 @@ const MaterialTab: React.FC = () => {
 
     const handleOpenDialog = (material: Material) => {
         setSelectedMaterial(material);
-        axios.get(`http://0.0.0.0:8001/esterilizacao/materiais/${material.id}/processo`, {
+        axios.get(`http://localhost:8001/esterilizacao/materiais/${material.id}/processo`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -92,7 +92,7 @@ const MaterialTab: React.FC = () => {
             data_inicio: new Date().toISOString(),
           };
     
-          axios.post('http://0.0.0.0:8001/esterilizacao/processos/', newProcessData, {
+          axios.post('http://localhost:8001/esterilizacao/processos/', newProcessData, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('access_token')}`,
             },
@@ -100,7 +100,7 @@ const MaterialTab: React.FC = () => {
             .then(() => {
               fetchMaterias();
               setOpen(false);
-              axios.get('http://0.0.0.0:8001/esterilizacao/processos/', {
+              axios.get('http://localhost:8001/esterilizacao/processos/', {
                 headers: {
                   Authorization: `Bearer ${localStorage.getItem('access_token')}`,
                 },

@@ -48,6 +48,13 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5433:5432"  # Porta externa alterada para 5433 (deve ser consistente com o DB_HOST no Django)
+  
+  info:
+    image: busybox
+    depends_on:
+      - frontend
+    command: >
+      sh -c "printf '🚀 Backend está rodando em: http://localhost:8001/admin/   🌐 Frontend está rodando em: http://localhost/'"
 
 volumes:
   postgres_data:

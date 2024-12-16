@@ -37,7 +37,7 @@ const ProcessoTab: React.FC = () => {
 
   const fetchProcessos = () => {
     axios
-      .get('http://0.0.0.0:8001/esterilizacao/processos/', {
+      .get('http://localhost:8001/esterilizacao/processos/', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -48,7 +48,7 @@ const ProcessoTab: React.FC = () => {
 
   const handleIniciarProximaEtapa = async () => {
     try {
-      const response = await fetch(`http://0.0.0.0:8001/esterilizacao/processos/${selectedProcesso?.id}/criar-etapa/`, {
+      const response = await fetch(`http://localhost:8001/esterilizacao/processos/${selectedProcesso?.id}/criar-etapa/`, {
         method: 'POST',
       });
       const data = await response.json();
@@ -65,7 +65,7 @@ const ProcessoTab: React.FC = () => {
 
   const handleFinalizarEtapa = async () => {
     try {
-      const response = await fetch(`http://0.0.0.0:8001/esterilizacao/etapas/${selectedEtapa?.id}/atualizar-status/`, {
+      const response = await fetch(`http://localhost:8001/esterilizacao/etapas/${selectedEtapa?.id}/atualizar-status/`, {
         method: 'PATCH',
       });
       const data = await response.json();
@@ -92,7 +92,7 @@ const ProcessoTab: React.FC = () => {
     };
 
     try {
-      await axios.post(`http://0.0.0.0:8001/esterilizacao/falhas/`, newFalhaData, {
+      await axios.post(`http://localhost:8001/esterilizacao/falhas/`, newFalhaData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -108,7 +108,7 @@ const ProcessoTab: React.FC = () => {
 
 
   useEffect(() => {
-    axios.get('http://0.0.0.0:8001/esterilizacao/processos/', {
+    axios.get('http://localhost:8001/esterilizacao/processos/', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       },
@@ -118,7 +118,7 @@ const ProcessoTab: React.FC = () => {
   }, []);
 
     const handleOpenPopup = (processo: Processo) => {
-      axios.get(`http://0.0.0.0:8001/esterilizacao/processos/${processo.id}/`, {
+      axios.get(`http://localhost:8001/esterilizacao/processos/${processo.id}/`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -131,7 +131,7 @@ const ProcessoTab: React.FC = () => {
 
           if (processo.etapa_atual) {
             axios
-              .get(`http://0.0.0.0:8001/esterilizacao/processos/${processo.id}/falhas/`, {
+              .get(`http://localhost:8001/esterilizacao/processos/${processo.id}/falhas/`, {
                 headers: {
                   Authorization: `Bearer ${localStorage.getItem('access_token')}`,
                 },

@@ -32,7 +32,7 @@ const ProcessoTab: React.FC = () => {
   const [falhas, setFalhas] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get('http://0.0.0.0:8001/esterilizacao/processos/', {
+    axios.get('http://localhost:8001/esterilizacao/processos/', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       },
@@ -44,7 +44,7 @@ const ProcessoTab: React.FC = () => {
     const handleOpenPopup = (processo: Processo) => {
       setProcessoId(processo.id)
 
-      axios.get(`http://0.0.0.0:8001/esterilizacao/processos/${processo.id}/`, {
+      axios.get(`http://localhost:8001/esterilizacao/processos/${processo.id}/`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -55,7 +55,7 @@ const ProcessoTab: React.FC = () => {
 
           if (processo.etapa_atual) {
             axios
-              .get(`http://0.0.0.0:8001/esterilizacao/processos/${processo.id}/falhas/`, {
+              .get(`http://localhost:8001/esterilizacao/processos/${processo.id}/falhas/`, {
                 headers: {
                   Authorization: `Bearer ${localStorage.getItem('access_token')}`,
                 },

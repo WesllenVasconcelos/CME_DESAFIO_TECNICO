@@ -10,9 +10,9 @@ const Login: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    
     try {
-      const response = await fetch('http://0.0.0.0:8001/core/login/', {
+      const response = await fetch('http://localhost:8001/core/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

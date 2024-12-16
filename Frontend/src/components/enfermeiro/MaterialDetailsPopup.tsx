@@ -21,7 +21,7 @@ const MaterialDetailsPopup: React.FC<MaterialDetailsPopupProps> = ({ open, onClo
   
     const handleOpenPopup = (processo: Processo) => {
         setProcessoId(processo.id)
-        axios.get(`http://0.0.0.0:8001/esterilizacao/processos/${processo.id}/`, {
+        axios.get(`http://localhost:8001/esterilizacao/processos/${processo.id}/`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('access_token')}`,
           },
@@ -32,7 +32,7 @@ const MaterialDetailsPopup: React.FC<MaterialDetailsPopupProps> = ({ open, onClo
   
             if (processo.etapa_atual) {
               axios
-                .get(`http://0.0.0.0:8001/esterilizacao/processos/${processo.id}/falhas/`, {
+                .get(`http://localhost:8001/esterilizacao/processos/${processo.id}/falhas/`, {
                   headers: {
                     Authorization: `Bearer ${localStorage.getItem('access_token')}`,
                   },
