@@ -19,7 +19,7 @@ const MaterialsTab: React.FC = () => {
   const [openCreatePopup, setOpenCreatePopup] = useState(false);
 
   useEffect(() => {
-    fetch('http://0.0.0.0:8001/esterilizacao/materiais/', {
+    fetch('http://localhost:8001/esterilizacao/materiais/', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       },
@@ -35,7 +35,7 @@ const MaterialsTab: React.FC = () => {
   };
 
   const handleSave = (updatedMaterial: any) => {
-    fetch(`http://0.0.0.0:8001/esterilizacao/materiais/${updatedMaterial.id}/`, {
+    fetch(`http://localhost:8001/esterilizacao/materiais/${updatedMaterial.id}/`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const MaterialsTab: React.FC = () => {
   };
 
   const handleCreate = (newMaterial: any) => {
-    fetch('http://0.0.0.0:8001/esterilizacao/materiais/', {
+    fetch('http://localhost:8001/esterilizacao/materiais/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
