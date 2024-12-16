@@ -1,0 +1,82 @@
+# Python/Django - Backend
+
+# Virtual Environment
+venv/
+.env
+.env.local
+.env.*.local
+
+# Django specific
+__pycache__/
+*.py[cod]
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+debug.log
+
+# Logs
+*.log
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Pytest / Coverage
+.coverage
+.tox/
+.nox/
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Backend Docker build cache
+Backend/__pycache__/
+Backend/*/migrations/*/__pycache__/
+
+# Frontend - Node.js / React / Vite
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+dist/
+coverage/
+
+# Vite
+.vite/
+.vite-inspect/
+
+# Local Environment files
+.env
+.env.production
+.env.development.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# IDEs/Editors
+.vscode/
+.idea/
+*.iml
+*.sw?
+*.sublime-*
+
+# Misc
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+**/Dockerfile
+**/docker-compose.yml
+**/.dockerignore
