@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./Backend
+    container_name: django_backend
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./Backend:/app
+    environment:
+      - DJANGO_SUPERUSER_PASSWORD=admin
+      - DEBUG=True
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=mydatabase
+      - DB_USER=myuser
+      - DB_PASSWORD=mypassword
+    depends_on:
+      - db
+    command: >
+      /bin/bash -c "python manage.py makemigrations && python manage.py migrate && \
+        python manage.py createsuperuser --noinput --username admin --email admin@example.com || echo 'Superuser already exists' && \
+        python manage.py runserver 0.0.0.0:8000"
+
+
+
+  frontend:
+    build:
+      context: ./Frontend
+    container_name: react_frontend
+    ports:
+      - "80:80"  # Alterei para usar a porta 80, que é a porta padrão do Nginx
+    depends_on:
+      - backend
+    volumes:
+      - ./Frontend:/app
+
+  db:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"  # Porta externa alterada para 5433 (deve ser consistente com o DB_HOST no Django)
+
+volumes:
+  postgres_data:
