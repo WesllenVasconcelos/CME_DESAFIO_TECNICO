@@ -27,26 +27,26 @@ Construa e inicie os contêineres com o comando:
 
 **Criação do Primeiro Usuário**
 
-Após rodar o projeto pela primeira vez, o primeiro usuário deve ser criado diretamente no painel de administração do Django. Para isso:
+Após rodar o projeto pela primeira vez, o primeiro usuário deve ser criado diretamente no painel de administração do Django. Na aba **Users** Para isso:
 
     Acesse o painel de administração do Django em http://localhost:8001/admin/.
-    Utilize as credenciais padrão para fazer o login:
+    Utilize as credenciais do usuario admin gerado por padrão para fazer o login:
         Usuário: admin
         Senha: admin
 
-Após o login, você poderá criar o primeiro usuário para o sistema. Esse primeiro usuario deve ser do tipo **Administrativo**, pois a partir você podera criar outros usuarios com outros de cargo na home de administrador após logar no sistema.
+Após o login, você poderá criar o primeiro usuário para o sistema. Esse primeiro usuario deve ser do tipo **Administrativo**, pois a partir você podera criar outros usuarios com outros de cargo na **Home de Administrador** após logar no sistema.
 
 **Regras de Cadastro de Usuários**
 
 Os usuários do sistema devem atender aos seguintes requisitos:
 
     Nome: mínimo de 5 caracteres.
-    Email: deve ser válido, no formato example@domain.com.
+    Email: deve ser válido e único, no formato example@domain.com.
     Senha: mínimo de 6 caracteres.
 
-Tipos de Usuários e Permissões
+Tipos de Usuários e Permissões:
 
-Existem 3 tipos de usuários no sistema, cada um com diferentes permissões:
+Existem **3 tipos de Usuários** no sistema, cada um com diferentes permissões:
 
 **Técnico**
 
@@ -67,6 +67,19 @@ Existem 3 tipos de usuários no sistema, cada um com diferentes permissões:
 * Pode criar, editar materiais e atribuir cargos a novos usuários.
 * Pode editar usuários já cadastrados.
 
+**Material**
+
+A entidade material representa as ferramentas que irão passar pelo processo de esterilização. 
+
+No sistema o material pode ter 5 status :
+
+ * Distribuido: Seria o status normal de um material, ou seja ele está em uso ditribuido em alguma unidade.
+ * Pendente: Pendente significa que o material, já não está mais em uso e foi atrelado a um processo que está pendente de iniciar.
+ * Recebido: Significa que o material foi recebido para iniciar o prcesso.
+ * Lavado: Passou pela lavagem com êxito.
+ * Esterilizado: Significa que entrou no processo final de esterilização. Após esse ultimo status o material volta a ser **ditribuido**
+   completando o ciclo e podendo iniciar outro.
+
 **Etapa de um processo**
 
 No sistema podemos iniciar "Processos" que são uma abstração para o registro de um processo de esterilização de materiais.
@@ -85,7 +98,8 @@ Após todas os 4 tipos de etapas terem sido concluidas em um processo seu status
 
 **Falhas**
 
-
+As falahas podem ser relatadas em uma etapa de um processo. Podem ser relatadas quantas falhas forem preciso em uma etapa. A relação falha material se dá da seguinte forma: 
+Um processo tem um material e 4 etapas. Essas etapas podem ter várias falhas. Logo o material tem as falhas das etapa por cada processo que foi iniciado e concluido atrelado a ele.
 
 
 **Home Inicial**
