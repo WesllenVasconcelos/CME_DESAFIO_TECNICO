@@ -102,7 +102,7 @@ Após todas os 4 tipos de etapas terem sido concluidas em um processo seu status
 
 **Falhas**
 
-As falahas podem ser relatadas em uma etapa de um processo. Podem ser relatadas quantas falhas forem preciso em uma etapa. A relação falha material se dá da seguinte forma: 
+As falhas podem ser relatadas em uma etapa de um processo. Podem ser relatadas quantas falhas forem preciso em uma etapa. A relação falha material se dá da seguinte forma: 
 Um processo tem um material e 4 etapas. Essas etapas podem ter várias falhas. Logo o material tem as falhas das etapa por cada processo que foi iniciado e concluido atrelado a ele.
 
 
