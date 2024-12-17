@@ -3,7 +3,6 @@
 Descrição
 
 Este projeto é uma aplicação desenvolvida com Django (backend) e React (frontend), com o objetivo de gerenciar o processo de esterilização de materiais em uma Central de Materiais e Esterilização (CME). O sistema permite o cadastro e acompanhamento dos materiais, o gerenciamento dos processos de esterilização, e a geração de relatórios em PDF e XSLX sobre o andamento das atividades.
-Requisitos
 
  * Docker
 
@@ -12,8 +11,8 @@ Requisitos
 
 **Como Executar o Projeto**
 
-    git clone <url-do-repositorio>
-    cd <diretorio-do-repositorio>
+    git clone https://github.com/WesllenVasconcelos/CME_DESAFIO_TECNICO.git
+    cd CME_DESAFIO_TECNICO
 
 Certifique-se de que o Docker esteja instalado e funcionando no seu sistema.
 
@@ -24,10 +23,15 @@ Construa e inicie os contêineres com o comando:
     O Docker irá construir os contêineres para o backend (Django) e frontend (React) e iniciá-los. Após o build, os serviços estarão disponíveis nas seguintes rotas:
         Backend: http://localhost:8001/admin/ (painel django-admin)
         Frontend: http://localhost/ (login)
+        
+Você também pode conferir uma documentação no **swagger**. Basta acessar:
+
+      Backend: http://localhost:8001/swagger/ (doc)
+
 
 **Criação do Primeiro Usuário**
 
-Após rodar o projeto pela primeira vez, o primeiro usuário deve ser criado diretamente no painel de administração do Django. Na aba **Users** Para isso:
+Após rodar o projeto pela primeira vez, o primeiro usuário deve ser criado diretamente no painel de administração do Django na aba **Users**, para isso:
 
     Acesse o painel de administração do Django em http://localhost:8001/admin/.
     Utilize as credenciais do usuario admin gerado por padrão para fazer o login:
