@@ -18,7 +18,7 @@ Certifique-se de que o Docker esteja instalado e funcionando no seu sistema.
 
 Construa e inicie os contêineres com o comando:
 
-    docker-compose up --build
+    docker compose up --build
 
     O Docker irá construir os contêineres para o backend (Django) e frontend (React) e iniciá-los. Após o build, os serviços estarão disponíveis nas seguintes rotas:
         Backend: http://localhost:8001/admin/ (painel django-admin)
